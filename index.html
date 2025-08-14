@@ -1,145 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Landing Page</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Krunal Chavda — Portfolio & Business</title>
+<meta name="description" content="Krunal Chavda — IT Engineer & Web Developer. Portfolio + Business services, pricing, projects, contact." />
+
+<!-- ====== Base Styles ====== -->
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        font-family: Arial, sans-serif;
-        background: #f8f9fa;
-        color: #333;
-    }
-    header {
-        background: linear-gradient(to right, #1e3c72, #2a5298);
-        color: white;
-        padding: 50px 20px;
-        text-align: center;
-        animation: fadeIn 2s ease-in-out;
-    }
-    header h1 {
-        font-size: 3em;
-        margin-bottom: 10px;
-    }
-    header p {
-        font-size: 1.2em;
-        margin-bottom: 20px;
-    }
-    header a {
-        background: #ff9800;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-size: 1.1em;
-        font-weight: bold;
-        transition: background 0.3s ease;
-    }
-    header a:hover {
-        background: #e68900;
-    }
-    section {
-        max-width: 1100px;
-        margin: auto;
-        padding: 50px 20px;
-    }
-    h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 2.2em;
-        color: #1e3c72;
-        animation: slideUp 1.5s ease-in-out;
-    }
-    .features {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .feature {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        flex: 1 1 calc(33% - 40px);
-        min-width: 280px;
-        text-align: center;
-        animation: fadeInUp 1.5s ease-in-out;
-        transition: transform 0.3s ease;
-    }
-    .feature:hover {
-        transform: scale(1.05);
-    }
-    .feature h3 {
-        color: #2a5298;
-        margin-bottom: 10px;
-    }
-    .feature p {
-        font-size: 0.95em;
-        color: #555;
-    }
-    footer {
-        background: #1e3c72;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        margin-top: 30px;
-    }
-    /* Animations */
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-    @keyframes slideUp {
-        from {transform: translateY(30px); opacity: 0;}
-        to {transform: translateY(0); opacity: 1;}
-    }
-    @keyframes fadeInUp {
-        from {transform: translateY(50px); opacity: 0;}
-        to {transform: translateY(0); opacity: 1;}
-    }
+  :root{
+    --bg:#0b1220;
+    --bg-soft:#0f1a2f;
+    --card:#111b33;
+    --muted:#94a3b8;
+    --text:#e6f0ff;
+    --accent:#38bdf8;
+    --accent-2:#22d3ee;
+    --ok:#34d399;
+    --warn:#f59e0b;
+    --danger:#fb7185;
+    --ring:0 0 0 3px rgba(56,189,248,.35);
+    --radius:18px;
+    --shadow:0 20px 60px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #1d2a4a 0%, transparent 60%),
+      radial-gradient(1000px 500px at 90% 10%, #0b3b5b 0%, transparent 60%),
+      linear-gradient(180deg, #07111d, #0b1220 40%, #0c1528);
+    background-attachment: fixed;
+  }
+
+  /* ====== Layout ====== */
+  .container{width:min(1200px, 92vw); margin:auto}
+  .grid{display:grid; gap:20px}
+  .row-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+  .row-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+  @media (max-width: 980px){ .row-3{grid-template-columns:1fr 1fr} }
+  @media (max-width: 720px){ .row-2, .row-3{grid-template-columns:1fr} }
+
+  section{padding:80px 0; position:relative}
+  section .section-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:24px}
+  h2.section-title{margin:0; font-size:clamp(22px, 3vw, 28px); letter-spacing:.3px}
+  .section-sub{color:var(--muted); font-size:14px}
+
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(148,163,184,.18);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    backdrop-filter: blur(6px);
+  }
+
+  /* ====== Navbar ====== */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background: rgba(8,14,25,.7); backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(148,163,184,.18);
+  }
+  .nav .container{display:flex; align-items:center; gap:12px; padding:10px 0}
+  .brand{font-weight:700; letter-spacing:.6px}
+  .nav a{color:var(--text); text-decoration:none; opacity:.85}
+  .menu{display:flex; gap:18px; margin-left:auto; align-items:center}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:10px 16px; border-radius:14px; border:1px solid rgba(148,163,184,.2);
+    background:linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.08));
+    color:var(--text); text-decoration:none; cursor:pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+  }
+  .btn:hover{transform: translateY(-1px); box-shadow:0 10px 26px rgba(56,189,248,.15)}
+  .btn.ghost{background:transparent}
+  .chip{padding:8px 10px; border-radius:999px; border:1px solid rgba(148,163,184,.25); font-size:13px}
+
+  /* ====== Hero ====== */
+  .hero{
+    padding:90px 0 60px;
+    position:relative; overflow:hidden;
+  }
+  .glow{
+    position:absolute; inset:auto -20% -30% -20%;
+    height:300px; filter: blur(60px); opacity:.4;
+    background: radial-gradient(closest-side, rgba(34,211,238,.6), transparent 70%),
+                radial-gradient(closest-side, rgba(56,189,248,.6), transparent 70%);
+    pointer-events:none;
+  }
+  .hero h1{
+    margin:12px 0 10px; font-size: clamp(28px, 5.2vw, 56px); line-height:1.15;
+  }
+  .hero p{color:var(--muted)}
+  .hero .actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+
+  .kbd{font:12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    padding:2px 6px; background:#0f1a2f; border:1px solid rgba(148,163,184,.25); border-radius:6px}
+
+  /* ====== Skill Accordions ====== */
+  .accord{border:1px solid rgba(148,163,184,.18); border-radius:16px; overflow:hidden}
+  details{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))}
+  summary{
+    list-style:none; cursor:pointer; user-select:none;
+    padding:16px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+  }
+  summary::-webkit-details-marker{display:none}
+  .arrow{transition: transform .25s ease}
+  details[open] .arrow{transform: rotate(90deg)}
+  .acc-body{padding: 0 18px 16px; color:#d4e4ff}
+  .badge{display:inline-flex; padding:6px 10px; border-radius:999px; border:1px solid rgba(148,163,184,.28); gap:8px; align-items:center; margin:4px 6px 0 0; font-size:13px}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--ok)}
+
+  /* ====== Project Cards ====== */
+  .proj{display:flex; flex-direction:column; gap:10px; padding:16px}
+  .proj h3{margin:4px 0 2px; font-size:18px}
+  .proj p{margin:0; color:var(--muted)}
+  .proj .tags{display:flex; gap:8px; flex-wrap:wrap}
+  .tag{font-size:12px; border:1px solid rgba(148,163,184,.24); padding:4px 8px; border-radius:999px}
+  .proj .actions{display:flex; gap:10px; margin-top:6px}
+
+  /* ====== Business & Pricing ====== */
+  .feature{display:flex; gap:12px; align-items:flex-start}
+  .feature .icon{width:28px; height:28px; border-radius:8px; display:inline-grid; place-items:center; background:linear-gradient(180deg, rgba(52,211,153,.28), rgba(52,211,153,.12)); border:1px solid rgba(52,211,153,.35)}
+  .plan{padding:20px}
+  .plan h3{margin:6px 0 0}
+  .price{font-size:32px; font-weight:800}
+  .plan ul{padding:0 0 0 18px; margin:10px 0; color:#cfe0ff}
+  .plan .btn{width:100%}
+  .best{outline: var(--ring); position:relative}
+  .best::after{content:"POPULAR"; position:absolute; top:12px; right:12px; font-size:11px; letter-spacing:.8px; padding:4px 8px; border-radius:999px; border:1px solid rgba(148,163,184,.28)}
+
+  /* ====== FAQ ====== */
+  .faq details{border-top:1px dashed rgba(148,163,184,.25)}
+  .faq .acc-body{padding:0 0 16px}
+
+  /* ====== Contact/Footer ====== */
+  .contact{display:grid; gap:18px; grid-template-columns:1.2fr .8fr}
+  @media (max-width:900px){ .contact{grid-template-columns:1fr} }
+  label{display:block; font-size:13px; color:#bcd2ff; margin:10px 0 6px}
+  input, textarea{
+    width:100%; padding:12px 14px; border-radius:12px; color:var(--text);
+    background:#0f1a2f; border:1px solid rgba(148,163,184,.25); outline:none;
+  }
+  input:focus, textarea:focus{box-shadow:var(--ring)}
+  textarea{min-height:120px; resize:vertical}
+  .footer{padding:28px 0 60px; color:#9fb4d8; text-align:center}
+  .links{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .links a{color:#cfe2ff}
+
+  /* ====== Animations ====== */
+  .reveal{opacity:0; transform: translateY(16px); transition: all .6s ease}
+  .reveal.show{opacity:1; transform:none}
 </style>
 </head>
 <body>
 
-<header>
-    <h1>Grow Your Business</h1>
-    <p>We help you reach more customers and increase your sales.</p>
-    <a href="#contact">Get Started</a>
-</header>
-
-<section>
-    <h2>Why Choose Us?</h2>
-    <div class="features">
-        <div class="feature">
-            <h3>🚀 Fast Results</h3>
-            <p>Our strategies ensure quick and visible growth for your business.</p>
-        </div>
-        <div class="feature">
-            <h3>📈 Data-Driven</h3>
-            <p>We use analytics to target the right audience for maximum ROI.</p>
-        </div>
-        <div class="feature">
-            <h3>💡 Creative Solutions</h3>
-            <p>Our creative team builds unique campaigns to make your brand stand out.</p>
-        </div>
+  <!-- ====== NAV ====== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="brand">Krunal.</div>
+      <div class="menu">
+        <a href="#portfolio" class="chip">Portfolio</a>
+        <a href="#skills" class="chip">Skills</a>
+        <a href="#projects" class="chip">Projects</a>
+        <a href="#business" class="chip">Business</a>
+        <a href="#pricing" class="chip">Pricing</a>
+        <a href="#contact" class="btn">Hire / Get Quote</a>
+      </div>
     </div>
-</section>
+  </nav>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">📧 Email: <a href="mailto:kanodalwadi345@gmail.com">kanodalwadi345@gmail.com</a></p>
-    <p style="text-align:center;">📱 Phone: <a href="tel:+917984120641">+91 79841 20641</a></p>
-</section>
+  <!-- ====== HERO / PORTFOLIO HEADER ====== -->
+  <header id="portfolio" class="hero">
+    <div class="glow"></div>
+    <div class="container">
+      <div class="chip">IT Engineer • Web Developer</div>
+      <h1>Hi, I’m <span style="color:var(--accent);">Krunal Chavda</span>.<br/>I build clean, fast &amp; modern web experiences.</h1>
+      <p>
+        From responsive websites to interactive landing pages. Scroll to explore my portfolio and
+        business services — sab ek hi page par.
+      </p>
+      <div class="actions">
+        <a href="#skills" class="btn" id="seeSkills">See Skills</a>
+        <a href="#business" class="btn ghost">Services for Business</a>
+        <span class="kbd">Shift</span><span class="kbd">/</span><span class="kbd">?</span>
+        <small style="color:var(--muted)">press to see shortcuts</small>
+      </div>
+    </div>
+  </header>
 
-<footer>
-    &copy; 2025 Your Business Name. All rights reserved.
-</footer>
+  <!-- ====== SKILLS (Accordion) ====== -->
+  <section id="skills">
+    <div class="container reveal">
+      <div class="section-head">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-sub">Tap to expand details, tools & mini-demos.</div>
+      </div>
 
-</body>
-</html>
+      <div class="accord card">
+        <!-- HTML -->
+        <details open>
+          <summary>
+            <div><strong>HTML5</strong> — semantic, accessible, SEO-ready</div>
+            <span class="arrow">▶</span>
+          </summary>
+          <div class="acc-body">
+            <p>Main semantic structure, meta tags, Open Graph, accessibility (ARIA) follow karta hu.</p>
+            <div>
+              <span class="badge"><span class="dot"></span> SEO Tags</span>
+              <span class="badge"><span class="dot"></span> A11y</span>
+              <span class="badge"><span class="dot"></span> Forms</span>
+            </div>
+            <div style="margin-top:10px">
+              <button class="btn" data-demo="html">Small Demo</button>
+            </div>
+          </div>
+        </details>
+
+        <!-- CSS -->
+        <details>
+          <summary>
+            <div><strong>CSS3</strong> — responsive, grid, animations</div>
+            <span class="arrow">▶</span>
+          </summary>
+          <div class="acc-body">
+            <p>Flexbox/Grid, custom properties, dark UI, glassmorphism, micro-interactions.</p>
+            <div>
+              <span class="badge"><span class="dot"></span> Flex/Grid</span>
+              <span class="badge"><span class="dot"></span> Animations</span>
+              <span class="badge"><span class="dot"></span> Responsive</span>
+            </div>
+            <div style="margin-top:10px">
+              <button class="btn" data-demo="css">Small Demo</button>
+            </div>
+          </div>
+        </details>
+
+        <!-- JavaScript -->
+        <details>
+          <summary>
+            <div><strong>JavaScript</strong> — interactivity, APIs, SPA basics</div>
+            <span class="arrow">▶</span>
+          </summary>
+          <div class="acc-body">
+            <p>DOM, fetch API, components, state basics. Performance-focused vanilla JS.</p>
+            <div>
+              <span class="badge"><span class="dot"></span> Fetch</span>
+              <span class="badge"><span class="dot"></span> DOM</span>
+              <span class="badge"><span class="dot"></span> Optimizations</span>
+            </div>
+            <div style="margin-top:10px">
+              <button class="btn" data-demo="js">Small Demo</button>
+            </div>
+          </div>
+        </details>
+
+        <!-- Python -->
+        <details>
+          <summary>
+            <div><strong>Basic Python</strong> — scripting & automation</div>
+            <span class="arrow">▶</span>
+          </summary>
+          <div class="acc-body">
+            <p>Small scripts, data parsing, CLI tools. (Web focus ke liye JS primary.)</p>
+            <div>
+              <span class="badge"><span class="dot"></span> Scripts</span>
+              <span class="badge"><span class="dot"></span> Data Parsing</span>
+            </div>
+            <div style="margin-top:10px">
+              <button class="btn" data-demo="py">Small Demo</button>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROJECTS ====== -->
+  <section id="projects">
+    <div class="container reveal">
+      <div class="section-head">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-sub">Selected work & interactive previews</div>
+      </div>
+
+      <div class="grid row-3">
+        <article class="card proj">
+          <div class="chip">Personal Portfolio</div>
+          <h3>Responsive Portfolio</h3>
+          <p>My fully responsive portfolio with sections, animations and SEO basics.</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+          </div>
+          <div class="actions">
+            <button class="btn" data-modal="p1">Preview</button>
+            <a class="btn ghost" href="#contact">Hire Me</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="chip">Business</div>
+          <h3>Business Landing Page</h3>
+          <p>High-converting landing with pricing, FAQs, and CTA flow.</p>
+          <div class="tags">
+            <span class="tag">Conversion</span><span class="tag">Animations</span><span class="tag">UX</span>
+          </div>
+          <div class="actions">
+            <button class="btn" data-modal="p2">Preview</button>
+            <a class="btn ghost" href="#pricing">See Pricing</a>
+          </div>
+        </article>
+
+        <article class="card proj">
+          <div class="chip">Utility</div>
+          <h3>Mini Utilities</h3>
+          <p>Small JS widgets (accordion, modal, toast) — light, dependency-free.</p>
+          <div class="tags">
+            <span class="tag">Vanilla JS</span><span class="tag">Components</span>
+          </div>
+          <div class="actions">
+            <button class="btn" data-modal="p3">Preview</button>
+            <a class="btn ghost" href="#business">Services</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BUSINESS SERVICES ====== -->
+  <section id="business">
+    <div class="container reveal">
+      <div class="section-head">
+        <h2 class="section-title">Business Services</h2>
+        <div class="section-sub">Public demand wali features — fast, secure & SEO friendly</div>
+      </div>
+
+      <div class="grid row-3">
+        <div class="card" style="padding:18px">
+          <div class="feature">
+            <div class="icon">✓</div>
+            <div>
+              <h3>Landing Pages that Convert</h3>
+              <p class="section-sub">A/B friendly layouts, strong CTAs, crisp copy.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon">⚡</div>
+            <div>
+              <h3>Performance First</h3>
+              <p class="section-sub">Optimized assets, lazy-loading, Lighthouse wins.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon">🔍</div>
+            <div>
+              <h3>SEO & Analytics</h3>
+              <p class="section-sub">Meta/OG, sitemap, basic tracking setup.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:18px">
+          <div class="feature">
+            <div class="icon">📱</div>
+            <div>
+              <h3>Responsive & Accessible</h3>
+              <p class="section-sub">Mobile-first, keyboard & screen-reader friendly.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon">🔐</div>
+            <div>
+              <h3>Security Basics</h3>
+              <p class="section-sub">Best practices for headers & forms.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon">🧩</div>
+            <div>
+              <h3>Reusable Components</h3>
+              <p class="section-sub">Clean, maintainable, scalable structure.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:18px">
+          <div class="feature">
+            <div class="icon">🛠</div>
+            <div>
+              <h3>Maintenance & Support</h3>
+              <p class="section-sub">Small updates, bug fixes, tweaks on request.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon">🧪</div>
+            <div>
+              <h3>Forms & Lead Capture</h3>
+              <p class="section-sub">Mailto/WhatsApp/action hooks as per need.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="icon">🚀</div>
+            <div>
+              <h3>Deploy to GitHub Pages</h3>
+              <p class="section-sub">Simple, free hosting flow (already done!).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== PRICING ====== -->
+  <section id="pricing">
+    <div class="container reveal">
+      <div class="section-head">
+        <h2 class="section-title">Pricing</h2>
+        <div class="section-sub">Transparent plans — choose what fits. Custom quote available.</div>
+      </div>
+
+      <div class="grid row-3">
+        <div class="card plan">
+          <div class="chip">Starter</div>
+          <div class="price">₹2,999</div>
+          <ul>
+            <li>1-page landing</li>
+            <li>Mobile responsive</li>
+            <li>Basic SEO</li>
+            <li>Delivery: 2–3 days</li>
+          </ul>
+          <a href="#contact" class="btn">Get Starter</a>
+        </div>
+
+        <div class="card plan best">
+          <div class="chip">Business</div>
+          <div class="price">₹6,999</div>
+          <ul>
+            <li>Multi-section landing</li>
+            <li>Animations & CTAs</li>
+            <li>SEO + Analytics setup</li>
+            <li>Delivery: 4–6 days</li>
+          </ul>
+          <a href="#contact" class="btn">Choose Business</a>
+        </div>
+
+        <div class="card plan">
+          <div class="chip">Pro</div>
+          <div class="price">₹11,999</div>
+          <ul>
+            <li>Advanced components</li>
+            <li>Content help + A/B ideas</li>
+            <li>Priority support 30 days</li>
+            <li>Delivery: 7–10 days</li>
+          </ul>
+          <a href="#contact" class="btn">Go Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section id="faq">
+    <div class="container reveal">
+      <div class="section-head">
+        <h2 class="section-title">FAQ</h2>
+        <div class="section-sub">Aapke common questions</div>
+      </div>
+
+      <div class="card faq">
+        <details>
+          <summary><strong>Delivery kaise hoti hai?</strong><span class="arrow">▶</span></summary>
+          <div class="acc-body">GitHub Pages par live deploy karta hu. Aapko repo access & site URL milta hai.</div>
+        </details>
+        <details>
+          <summary><strong>Maintenance included?</strong><span class="arrow">▶</span></summary>
+          <div class="acc-body">Starter me 7 din, Business me 15 din, Pro me 30 din basic tweaks included.</div>
+        </details>
+        <details>
+          <summary><strong>Custom features possible?</strong><span class="arrow">▶</span></summary>
+          <div class="acc-body">Haan, requirements ke hisaab se estimate & delivery plan milta hai.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact">
+    <div class="container reveal">
+      <div class="section-head">
+        <h2 class="section-title">Contact</h2>
+        <div class="section-sub">Let’s build something great.</div>
+      </div>
+
+      <div class="contact">
+        <form class="card" id="contactForm" style="padding:18px">
+          <label>Your Name</label>
+          <input required placeholder="Enter your name" />
+          <label>Email</label>
+          <input required type="email" placeholder="you@example.com" />
+          <label>Message</label>
+          <textarea required placeholder="Project details, timeline, budget..."></textarea>
+          <div style="display:flex; gap:12px; margin-top:14px">
+            <button type="submit" class="btn">Send Email</button>
+            <a class="btn ghost" id="whatsAppBtn" href="#" rel="noopener">WhatsApp</a>
+          </div>
+          <small class="section-sub">Email goes to: <strong>kanodalwadi345@gmail.com</strong></small>
+        </form>
+
+        <div class="card" style="padding:18px">
+          <h
