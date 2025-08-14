@@ -1,134 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krunal Chavda - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-            color: white;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            color: #ccc;
-        }
-        nav {
-            background: #111;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #00ffff;
-        }
-        section {
-            padding: 50px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        h2 {
-            color: #00ffff;
-            border-bottom: 2px solid #00ffff;
-            padding-bottom: 5px;
-        }
-        .skills, .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .skill, .project {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            flex: 1 1 calc(33% - 40px);
-            min-width: 250px;
-        }
-        footer {
-            background: #111;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-            color: #aaa;
-        }
-        .contact a {
-            color: #00ffff;
-            text-decoration: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Landing Page</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        color: #333;
+    }
+    header {
+        background: linear-gradient(to right, #1e3c72, #2a5298);
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+    }
+    header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+    header p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    header a {
+        background: #ff9800;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+    header a:hover {
+        background: #e68900;
+    }
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 50px 20px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+        color: #1e3c72;
+        animation: slideUp 1.5s ease-in-out;
+    }
+    .features {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .feature {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        flex: 1 1 calc(33% - 40px);
+        min-width: 280px;
+        text-align: center;
+        animation: fadeInUp 1.5s ease-in-out;
+        transition: transform 0.3s ease;
+    }
+    .feature:hover {
+        transform: scale(1.05);
+    }
+    .feature h3 {
+        color: #2a5298;
+        margin-bottom: 10px;
+    }
+    .feature p {
+        font-size: 0.95em;
+        color: #555;
+    }
+    footer {
+        background: #1e3c72;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    @keyframes slideUp {
+        from {transform: translateY(30px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+    @keyframes fadeInUp {
+        from {transform: translateY(50px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Krunal Chavda</h1>
-        <p>IT Engineering Student | Web Developer Enthusiast</p>
-    </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<header>
+    <h1>Grow Your Business</h1>
+    <p>We help you reach more customers and increase your sales.</p>
+    <a href="#contact">Get Started</a>
+</header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! My name is Krunal Chavda. I am currently pursuing IT Engineering and I have a keen interest in Web Development. My goal is to create beautiful, functional, and responsive websites that provide great user experiences.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill">HTML5</div>
-            <div class="skill">CSS3</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Responsive Design</div>
-            <div class="skill">Git & GitHub</div>
-            <div class="skill">Basic Python</div>
+<section>
+    <h2>Why Choose Us?</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>🚀 Fast Results</h3>
+            <p>Our strategies ensure quick and visible growth for your business.</p>
         </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Personal Portfolio</h3>
-                <p>A fully responsive personal portfolio website showcasing my skills and projects.</p>
-            </div>
-            <div class="project">
-                <h3>Business Landing Page</h3>
-                <p>Designed and developed a professional landing page for a small business.</p>
-            </div>
-            <div class="project">
-                <h3>Mini Game</h3>
-                <p>Created a simple browser-based game using JavaScript.</p>
-            </div>
+        <div class="feature">
+            <h3>📈 Data-Driven</h3>
+            <p>We use analytics to target the right audience for maximum ROI.</p>
         </div>
-    </section>
+        <div class="feature">
+            <h3>💡 Creative Solutions</h3>
+            <p>Our creative team builds unique campaigns to make your brand stand out.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p class="contact">📧 Email: <a href="mailto:kanodalwadi345@gmail.com">kanodalwadi345@gmail.com</a></p>
-        <p class="contact">📱 Phone: <a href="tel:+917984120641">+91 79841 20641</a></p>
-    </section>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">📧 Email: <a href="mailto:kanodalwadi345@gmail.com">kanodalwadi345@gmail.com</a></p>
+    <p style="text-align:center;">📱 Phone: <a href="tel:+917984120641">+91 79841 20641</a></p>
+</section>
 
-    <footer>
-        &copy; 2025 Krunal Chavda. All rights reserved.
-    </footer>
+<footer>
+    &copy; 2025 Your Business Name. All rights reserved.
+</footer>
+
 </body>
 </html>
