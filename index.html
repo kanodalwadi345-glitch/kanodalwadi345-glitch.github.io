@@ -3,84 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krunal's Portfolio & Business Page</title>
+    <title>Krunal Chavda | Portfolio & Business</title>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; }
-        header { background: #222; color: #fff; padding: 15px 20px; text-align: center; }
-        nav { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
-        nav button { background: #ff6600; color: white; padding: 10px 15px; border: none; cursor: pointer; border-radius: 5px; }
-        nav button:hover { background: #e55d00; }
-        section { display: none; padding: 30px; animation: fadeIn 0.5s; }
-        .active { display: block; }
-        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-        .card { background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
-        .skills-list, .pricing-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        form input, form textarea { width: 100%; padding: 10px; margin: 5px 0; }
-        form button { background: #28a745; color: white; padding: 10px; border: none; cursor: pointer; }
-        form button:hover { background: #218838; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: linear-gradient(45deg, #0072ff, #00c6ff); padding: 20px; color: white; text-align: center; }
+        nav { background: #333; display: flex; justify-content: center; }
+        nav a { color: white; padding: 15px; text-decoration: none; }
+        nav a:hover { background: #555; }
+        section { padding: 40px; max-width: 900px; margin: auto; }
+        .skills, .business, .contact { background: #f5f5f5; margin: 20px 0; padding: 20px; border-radius: 8px; }
+        h2 { color: #0072ff; }
+        button { background: #0072ff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #005bb5; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to Krunal's Portfolio & Business Page</h1>
-    <nav>
-        <button onclick="showSection('portfolio')">Portfolio</button>
-        <button onclick="showSection('business')">Business</button>
-        <button onclick="showSection('contact')">Contact</button>
-    </nav>
+    <h1>Krunal Chavda</h1>
+    <p>IT Engineer | Web Developer | Business Innovator</p>
 </header>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="active">
-    <h2>About Me</h2>
-    <div class="card">
-        <p><strong>Name:</strong> Krunal Chavda</p>
-        <p><strong>Field:</strong> IT Engineering</p>
-        <p><strong>Speciality:</strong> Web Developer</p>
-        <p><strong>Email:</strong> kanodalwadi345@gmail.com</p>
-        <p><strong>Phone:</strong> 7984120641</p>
-    </div>
-    <h2>Skills</h2>
-    <div class="skills-list">
-        <div class="card">HTML</div>
-        <div class="card">CSS</div>
-        <div class="card">JavaScript</div>
-        <div class="card">Python</div>
-        <div class="card">GitHub</div>
-    </div>
+<nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#business">Business</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="portfolio" class="skills">
+    <h2>My Skills</h2>
+    <ul>
+        <li>HTML, CSS, JavaScript - Advanced</li>
+        <li>Python Development</li>
+        <li>Responsive Web Design</li>
+        <li>Business Landing Page Creation</li>
+    </ul>
 </section>
 
-<!-- Business Landing Page -->
-<section id="business">
-    <h2>Our Business Services</h2>
-    <div class="card">
-        <p>We create modern websites, apps, and business solutions to help you grow your brand and attract more clients.</p>
-    </div>
-    <h2>Pricing</h2>
-    <div class="pricing-list">
-        <div class="card"><h3>Basic</h3><p>₹5000 - Simple 3-page site</p></div>
-        <div class="card"><h3>Standard</h3><p>₹10000 - Portfolio or business site with features</p></div>
-        <div class="card"><h3>Premium</h3><p>₹20000 - E-commerce + SEO + Marketing</p></div>
-    </div>
+<section id="business" class="business">
+    <h2>Business Landing Page</h2>
+    <p>Grow your business with our professional website services. We create stunning, high-conversion landing pages that attract clients and increase sales.</p>
+    <button onclick="alert('Business Plan: Contact us to start!')">View Business Plan</button>
 </section>
 
-<!-- Contact Section -->
-<section id="contact">
+<section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <form onsubmit="event.preventDefault(); alert('Message sent! I will contact you soon.');">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+    <form id="contact-form">
+        <input type="text" name="user_name" placeholder="Your Name" required>
+        <input type="email" name="user_email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
+    <p id="status"></p>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-    function showSection(id) {
-        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-    }
+    (function(){
+        emailjs.init("pSEQMRikbMDC-aTuu");
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(event){
+        event.preventDefault();
+        emailjs.sendForm("Chavdakrunal21", "template_sibiotn", this)
+            .then(function() {
+                document.getElementById("status").innerHTML = "✅ Message sent successfully!";
+            }, function(error) {
+                document.getElementById("status").innerHTML = "❌ Failed to send message. " + JSON.stringify(error);
+            });
+    });
 </script>
 
 </body>
