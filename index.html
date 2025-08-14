@@ -3,75 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krunal's Portfolio & Business</title>
+    <title>Krunal's Portfolio & Business Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        section {
-            padding: 40px;
-            background: white;
-            margin: 20px auto;
-            max-width: 900px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #333;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        form button {
-            background: #28a745;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background: #218838;
-        }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+        header { background: #333; color: #fff; padding: 15px; text-align: center; }
+        nav { display: flex; justify-content: center; gap: 20px; margin: 15px 0; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        section { padding: 50px; max-width: 900px; margin: auto; background: white; margin-bottom: 20px; border-radius: 10px; }
+        h2 { color: #333; }
+        button { padding: 10px 20px; background: #333; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        button:hover { background: #555; }
+        .service { background: #e8f0ff; padding: 20px; margin: 10px 0; border-radius: 5px; }
+        .skill { background: #ffe8e8; padding: 20px; margin: 10px 0; border-radius: 5px; }
+        form input, form textarea { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+        form button { background: #28a745; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Krunal's Portfolio & Business</h1>
+        <h1>Krunal Chavda</h1>
+        <p>IT Engineering | Web Developer | Business Solutions</p>
         <nav>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#business">Business</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Business</a>
+            <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section id="portfolio">
-        <h2>My Portfolio</h2>
-        <p>Hi, I am Krunal Chavda, a passionate Web Developer specializing in HTML, CSS, JavaScript, Python, and more.</p>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill">HTML5, CSS3, JavaScript</div>
+        <div class="skill">Python Development</div>
+        <div class="skill">Responsive Web Design</div>
+        <div class="skill">SEO Optimization</div>
     </section>
 
-    <section id="business">
-        <h2>Business Landing Page</h2>
-        <p>We provide high-quality web development services, creating attractive and functional websites for clients worldwide.</p>
+    <section id="services">
+        <h2>Business Services</h2>
+        <div class="service">Custom Website Development</div>
+        <div class="service">E-Commerce Solutions</div>
+        <div class="service">Business Landing Pages</div>
+        <div class="service">Portfolio Websites</div>
+    </section>
+
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <p><b>Basic Website:</b> ₹4,999</p>
+        <p><b>Business Package:</b> ₹9,999</p>
+        <p><b>Premium + SEO:</b> ₹14,999</p>
     </section>
 
     <section id="contact">
@@ -83,31 +64,30 @@
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p id="statusMessage"></p>
+        <p id="statusMsg"></p>
     </section>
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        (function() {
+        (function(){
             emailjs.init("pSEQMRikbMDC-aTuu"); // Public Key
         })();
 
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
+        document.getElementById("contactForm").addEventListener("submit", function(event){
             event.preventDefault();
 
-            const templateParams = {
+            const params = {
                 name: this.name.value,
                 email: this.email.value,
                 phone: this.phone.value,
                 message: this.message.value
             };
 
-            emailjs.send("Chavdakrunal21", "template_sibiotn", templateParams)
+            emailjs.send("Chavdakrunal21", "template_sibiotn", params)
                 .then(function(response) {
-                    document.getElementById("statusMessage").innerText = "✅ Message sent successfully!";
+                    document.getElementById("statusMsg").innerText = "✅ Message sent successfully!";
                 }, function(error) {
-                    document.getElementById("statusMessage").innerText = "❌ Failed to send message.";
+                    document.getElementById("statusMsg").innerText = "❌ Failed to send message.";
                 });
         });
     </script>
