@@ -3,48 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Krunal's Portfolio & Business</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
-        form { background: white; padding: 20px; border-radius: 10px; max-width: 400px; margin: auto; }
-        input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { background: #28a745; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background: #218838; }
-        .status { margin-top: 10px; font-weight: bold; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 40px;
+            background: white;
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background: #28a745;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
 
-<h2 style="text-align:center;">Contact Us</h2>
+    <header>
+        <h1>Krunal's Portfolio & Business</h1>
+        <nav>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#business">Business</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<form id="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="phone" placeholder="Your Phone Number" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-    <div class="status" id="status"></div>
-</form>
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <p>Hi, I am Krunal Chavda, a passionate Web Developer specializing in HTML, CSS, JavaScript, Python, and more.</p>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-    (function(){
-        emailjs.init("pSEQMRikbMDC-aTuu"); // Public Key
-    })();
+    <section id="business">
+        <h2>Business Landing Page</h2>
+        <p>We provide high-quality web development services, creating attractive and functional websites for clients worldwide.</p>
+    </section>
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        document.getElementById('status').innerHTML = "Sending...";
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="phone" placeholder="Your Phone" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="statusMessage"></p>
+    </section>
 
-        emailjs.sendForm("Chavdakrunal21", "template_sibiotn", this)
-        .then(function() {
-            document.getElementById('status').innerHTML = "✅ Message Sent Successfully!";
-        }, function(error) {
-            document.getElementById('status').innerHTML = "❌ Failed to send message. Please try again.";
-            console.error('Error:', error);
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("pSEQMRikbMDC-aTuu"); // Public Key
+        })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const templateParams = {
+                name: this.name.value,
+                email: this.email.value,
+                phone: this.phone.value,
+                message: this.message.value
+            };
+
+            emailjs.send("Chavdakrunal21", "template_sibiotn", templateParams)
+                .then(function(response) {
+                    document.getElementById("statusMessage").innerText = "✅ Message sent successfully!";
+                }, function(error) {
+                    document.getElementById("statusMessage").innerText = "❌ Failed to send message.";
+                });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
