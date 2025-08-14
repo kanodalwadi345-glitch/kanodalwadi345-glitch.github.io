@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krunal Chavda — Web Developer • Services • Blog</title>
+<meta name="description" content="Hire Krunal Chavda (IT Engineer, Web Developer). High-converting landing pages, SEO-friendly sites, and fast performance.">
+<meta name="theme-color" content="#0b1220">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- JSON-LD SEO -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":["Person","LocalBusiness"],
+  "name":"Krunal Chavda",
+  "jobTitle":"Web Developer",
+  "email":"mailto:kanodalwadi345@gmail.com",
+  "telephone":"+91-79841-20641",
+  "url":"https://YOUR-USERNAME.github.io",
+  "description":"Fast, modern websites & landing pages with SEO.",
+  "areaServed":"IN"
+}
+</script>
+
+<style>
+:root{
+  --bg:#0b1220;--panel:#0f1a2f;--line:#203153;--text:#eaf2ff;--muted:#9fb4d8;
+  --accent:#22d3ee;--accent2:#38bdf8;--ok:#34d399;--warn:#f59e0b;--danger:#ef4444;
+  --radius:18px;--shadow:0 16px 50px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 10% -10%, #1b2a4a 0%, transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, #073a5a 0%, transparent 60%),
+    linear-gradient(#08111d,#0b1220 40%,#0e1830);
+  background-attachment:fixed;
+}
+.container{width:min(1200px,92vw);margin:auto}
+.nav{position:sticky;top:0;z-index:60;background:rgba(8,14,25,.6);backdrop-filter:blur(10px);border-bottom:1px solid #172447}
+.nav .container{display:flex;align-items:center;gap:12px;padding:10px 0}
+.brand{font-weight:800;letter-spacing:.6px}
+.menu{margin-left:auto;display:flex;gap:12px;flex-wrap:wrap}
+a{color:var(--text);text-decoration:none}
+.chip{padding:8px 12px;border:1px solid #2a3a61;border-radius:999px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;border:1px solid #2a3a61;background:linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.08));cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(180deg, rgba(34,211,238,.6), rgba(56,189,248,.2));border-color:#3b6aa8}
+.btn.ghost{background:transparent}
+.card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid #213156;border-radius:var(--radius);box-shadow:var(--shadow)}
+section{padding:90px 0;position:relative}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.section-title{margin:0;font-size:clamp(22px,3vw,30px)}
+.section-sub{color:var(--muted);font-size:14px}
+.grid{display:grid;gap:18px}
+.row-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.row-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:980px){.row-3{grid-template-columns:1fr 1fr}}
+@media (max-width:720px){.row-2,.row-3{grid-template-columns:1fr}}
+.hero{padding:96px 0 60px;position:relative;overflow:hidden}
+.glow{position:absolute;inset:auto -20% -35% -20%;height:340px;filter:blur(70px);opacity:.45;background:
+  radial-gradient(closest-side, rgba(34,211,238,.6), transparent 70%),
+  radial-gradient(closest-side, rgba(56,189,248,.5), transparent 70%)}
+.hero h1{margin:10px 0;font-size:clamp(28px,5.2vw,54px);line-height:1.15}
+.hero p{color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.badge{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border:1px solid #2a3a61;border-radius:999px;margin:4px 6px 0 0;font-size:13px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:all .6s ease}
+.reveal.show{opacity:1;transform:none}
+
+.skill{padding:14px;border:1px solid #294068;border-radius:14px;position:relative;overflow:hidden}
+.skill .bar{position:absolute;left:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;border:1px solid #2a3a61;padding:4px 8px;border-radius:999px}
+.proj{padding:16px;display:flex;flex-direction:column;gap:10px}
+.proj h3{margin:4px 0 2px;font-size:18px}
+
+.plan{padding:18px}
+.price{font-size:30px;font-weight:800}
+.best{outline:0 0 0 3px rgba(56,189,248,.35)}
+.plan .btn{width:100%}
+
+.testi{display:flex;gap:14px;align-items:center}
+.testi img{width:46px;height:46px;border-radius:50%;border:1px solid #2a3a61}
+.carousel{position:relative;overflow:hidden}
+.carousel-track{display:flex;gap:18px;transition:transform .5s ease}
+
+.faq details{border-top:1px dashed #2a3a61}
+summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;justify-content:space-between}
+summary::-webkit-details-marker{display:none}
+.arrow{transition:transform .25s ease}
+details[open] .arrow{transform:rotate(90deg)}
+.acc-body{padding:0 18px 16px;color:#d4e4ff}
+
+.ad-slot{display:grid;place-items:center;height:120px;border:1px dashed #375084;border-radius:14px;background:#0c1630;color:#8fb0ff;font-size:14px}
+
+.footer{padding:30px 0 60px;text-align:center;color:#9fb4d8}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.links a{color:#d7e8ff}
+.small{font-size:12px;color:#9fb4d8}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi .card{padding:16px;text-align:center}
+@media (max-width:720px){.kpi{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="brand">Krunal.</div>
+    <div class="menu">
+      <a class="chip" href="#portfolio">Portfolio</a>
+      <a class="chip" href="#services">Services</a>
+      <a class="chip" href="#projects">Projects</a>
+      <a class="chip" href="#pricing">Pricing</a>
+      <a class="chip" href="#testimonials">Reviews</a>
+      <a class="chip" href="#blog">Blog</a>
+      <a class="btn primary" href="#contact">Hire / Get Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="portfolio" class="hero">
+  <div class="glow"></div>
+  <div class="container">
+    <div class="badge"><span class="dot"></span> IT Engineer • Web Developer</div>
+    <h1>Hi, I’m <span style="color:var(--accent)">Krunal Chavda</span> — I build fast, modern, SEO‑friendly websites that convert.</h1>
+    <p>Landing pages with sharp copy, speed scores 90+, and clean animations. Scroll for services, pricing, blog & direct contact.</p>
+    <div class="actions">
+      <a href="#services" class="btn primary">See Services</a>
+      <a href="#blog" class="btn">Read Blog (Earn)</a>
+      <a href="#contact" class="btn">WhatsApp Lead</a>
+    </div>
+
+    <!-- KPIs for social proof -->
+    <div class="kpi" style="margin-top:22px">
+      <div class="card"><div style="font-size:26px;font-weight:800">20+</div><div class="small">Projects</div></div>
+      <div class="card"><div style="font-size:26px;font-weight:800">10+</div><div class="small">Happy Clients</div></div>
+      <div class="card"><div style="font-size:26px;font-weight:800">90+</div><div class="small">Lighthouse Score</div></div>
+      <div class="card"><div style="font-size:26px;font-weight:800">100%</div><div class="small">On‑time Delivery</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- AD SLOT (Top) -->
+<section>
+  <div class="container reveal">
+    <div class="ad-slot card">Ad Slot — AdSense / Affiliate banner (paste code later)</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">Services</h2>
+      <div class="section-sub">Public demand packages — fast, secure, SEO‑ready</div>
+    </div>
+    <div class="grid row-3">
+      <div class="card" style="padding:18px">
+        <h3>High‑Converting Landing Pages</h3>
+        <p class="section-sub">Strong CTAs, benefits-first copy, A/B‑ready blocks.</p>
+        <ul class="section-sub"><li>Speed optimized</li><li>Mobile-first</li><li>Micro animations</li></ul>
+        <a class="btn" href="#pricing">See Pricing</a>
+      </div>
+      <div class="card" style="padding:18px">
+        <h3>Business Websites</h3>
+        <p class="section-sub">Company intro, services, portfolio, FAQ, contact.</p>
+        <ul class="section-sub"><li>SEO + Analytics</li><li>Secure forms</li><li>Maintenance</li></ul>
+        <a class="btn" href="#projects">See Projects</a>
+      </div>
+      <div class="card" style="padding:18px">
+        <h3>SEO & Performance</h3>
+        <p class="section-sub">On‑page SEO, schemas, Core Web Vitals.</p>
+        <ul class="section-sub"><li>Keyword plan</li><li>Image/CDN strategy</li><li>Lighthouse 90+</li></ul>
+        <a class="btn" href="#contact">Free Audit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-sub">Interactive previews (click)</div>
+    </div>
+    <div class="grid row-3">
+      <article class="card proj">
+        <div class="badge">Portfolio</div>
+        <h3>Personal Portfolio</h3>
+        <p class="section-sub">Smooth scroll & SEO basics.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+        <div class="actions"><button class="btn" data-modal="p1">Preview</button></div>
+      </article>
+      <article class="card proj">
+        <div class="badge">Business</div>
+        <h3>Landing Page</h3>
+        <p class="section-sub">Conversion‑focused layout with strong CTAs.</p>
+        <div class="tags"><span class="tag">UX</span><span class="tag">Animations</span></div>
+        <div class="actions"><button class="btn" data-modal="p2">Preview</button></div>
+      </article>
+      <article class="card proj">
+        <div class="badge">Utility</div>
+        <h3>Mini Widgets</h3>
+        <p class="section-sub">Accordion, modal, toast — no dependencies.</p>
+        <div class="tags"><span class="tag">Vanilla JS</span></div>
+        <div class="actions"><button class="btn" data-modal="p3">Preview</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (display only) -->
+<section id="pricing">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">Pricing</h2>
+      <div class="section-sub">Display only — payment disabled</div>
+    </div>
+    <div class="grid row-3">
+      <div class="card plan">
+        <div class="badge">Starter</div>
+        <div class="price">₹2,999</div>
+        <ul class="section-sub"><li>1‑page landing</li><li>Responsive</li><li>Basic SEO</li><li>2–3 days</li></ul>
+        <button class="btn read" data-plan="Starter">Get Quote</button>
+      </div>
+      <div class="card plan best">
+        <div class="badge">Business</div>
+        <div class="price">₹6,999</div>
+        <ul class="section-sub"><li>Multi‑section page</li><li>Animations & CTAs</li><li>SEO + Analytics</li><li>4–6 days</li></ul>
+        <button class="btn read" data-plan="Business">Get Quote</button>
+      </div>
+      <div class="card plan">
+        <div class="badge">Pro</div>
+        <div class="price">₹11,999</div>
+        <ul class="section-sub"><li>Advanced components</li><li>Content help</li><li>Priority support 30d</li><li>7–10 days</li></ul>
+        <button class="btn read" data-plan="Pro">Get Quote</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">Client Reviews</h2>
+      <div class="section-sub">Social proof that converts</div>
+    </div>
+    <div class="card carousel" style="padding:18px">
+      <div class="carousel-track" id="track">
+        <div class="testi card" style="padding:12px;min-width:280px">
+          <img src="https://i.pravatar.cc/100?img=12" alt="">
+          <div><b>Aarav</b><div class="small">“Landing page conversions doubled.”</div></div>
+        </div>
+        <div class="testi card" style="padding:12px;min-width:280px">
+          <img src="https://i.pravatar.cc/100?img=32" alt="">
+          <div><b>Neha</b><div class="small">“Clean code + 95 Lighthouse.”</div></div>
+        </div>
+        <div class="testi card" style="padding:12px;min-width:280px">
+          <img src="https://i.pravatar.cc/100?img=5" alt="">
+          <div><b>Rohit</b><div class="small">“Fast delivery and great support.”</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ + Affiliate pitch -->
+<section id="faq">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">FAQ & Earn With Me</h2>
+      <div class="section-sub">Affiliate/commission ready</div>
+    </div>
+    <div class="grid row-2">
+      <div class="card faq" style="padding:6px 0">
+        <details open>
+          <summary>How fast is delivery? <span class="arrow">▶</span></summary>
+          <div class="acc-body">Starter: 2–3 days, Business: 4–6 days.</div>
+        </details>
+        <details>
+          <summary>Do you provide maintenance? <span class="arrow">▶</span></summary>
+          <div class="acc-body">Yes, monthly support available.</div>
+        </details>
+        <details>
+          <summary>Can you improve SEO? <span class="arrow">▶</span></summary>
+          <div class="acc-body">On‑page SEO, schema, and content plan.</div>
+        </details>
+      </div>
+      <div class="card" style="padding:18px">
+        <h3>Earn Commission With Me</h3>
+        <p class="section-sub">Recommend my service or products you use. Use the buttons below — replace with your <b>affiliate links</b> later.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+          <a class="btn primary" id="aff1" href="#" target="_blank" rel="nofollow noopener">Best Hosting (Affiliate)</a>
+          <a class="btn" id="aff2" href="#" target="_blank" rel="nofollow noopener">Top Theme (Affiliate)</a>
+          <a class="btn ghost" id="aff3" href="#" target="_blank" rel="nofollow noopener">SEO Tool (Affiliate)</a>
+        </div>
+        <div class="ad-slot" style="margin-top:12px">Ad Slot — 300×250 banner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">Blog</h2>
+      <div class="section-sub">Write posts to get Google traffic & place affiliate links</div>
+    </div>
+    <div class="grid row-3">
+      <article class="card" style="padding:16px">
+        <div class="section-sub">SEO • 14 Aug 2025</div>
+        <h3>Speed Up Your Website (5 Quick Wins)</h3>
+        <p class="section-sub">Cache, compress, defer scripts, CDN & more.</p>
+        <button class="btn read" data-post="speed">Read</button>
+      </article>
+      <article class="card" style="padding:16px">
+        <div class="section-sub">Landing • 14 Aug 2025</div>
+        <h3>Landing Page That Converts — Framework</h3>
+        <p class="section-sub">Hero → Benefits → Proof → CTA. Templates inside.</p>
+        <button class="btn read" data-post="convert">Read</button>
+      </article>
+      <article class="card" style="padding:16px">
+        <div class="section-sub">Hosting • 14 Aug 2025</div>
+        <h3>Free Hosting with GitHub Pages</h3>
+        <p class="section-sub">Step‑by‑step + domain mapping tips.</p>
+        <button class="btn read" data-post="ghpages">Read</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container reveal">
+    <div class="section-head">
+      <h2 class="section-title">Contact</h2>
+      <div class="section-sub">Leads yaha se aayenge — Email/WhatsApp</div>
+    </div>
+    <div class="grid row-2">
+      <form class="card" id="contactForm" style="padding:18px">
+        <label>Your Name</label>
+        <input required placeholder="Your name">
+        <label>Email</label>
+        <input required type="email" placeholder="you@example.com">
+        <label>Message</label>
+        <textarea required placeholder="What do you need?"></textarea>
+        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+          <button type="submit" class="btn primary">Send Email</button>
+          <a class="btn" id="waBtn" href="#" rel="noopener">WhatsApp</a>
+          <a class="btn" id="affBtn" href="#" target="_blank" rel="nofollow noopener">Recommended Tool (Affiliate)</a>
+        </div>
+        <small class="section-sub">Emails go to: <b>kanodalwadi345@gmail.com</b></small>
+      </form>
+
+      <div class="card" style="padding:18px">
+        <h3>Direct</h3>
+        <p class="section-sub">Email: <a href="mailto:kanodalwadi345@gmail.com">kanodalwadi345@gmail.com</a></p>
+        <p class="section-sub">Phone: <a href="tel:+917984120641">+91 79841 20641</a></p>
+        <div style="margin-top:12px">
+          <a class="btn" href="mailto:kanodalwadi345@gmail.com?subject=Project%20Inquiry%20from%20Website">Mail Now</a>
+          <a class="btn ghost" href="https://wa.me/917984120641?text=Hi%20Krunal%2C%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">WhatsApp Now</a>
+        </div>
+        <div class="ad-slot" style="margin-top:14px">Ad Slot — small horizontal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="links">
+    <a href="#portfolio">Top</a>·
+    <a href="#services">Services</a>·
+    <a href="#projects">Projects</a>·
+    <a href="#pricing">Pricing</a>·
+    <a href="#testimonials">Reviews</a>·
+    <a href="#blog">Blog</a>·
+    <a href="#contact">Contact</a>
+  </div>
+  <div style="margin-top:8px">© <span id="year"></span> Krunal Chavda — All rights reserved.</div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" style="position:fixed;inset:0;display:none;place-items:center;background:rgba(3,8,16,.6);z-index:70;">
+  <div class="card" style="width:min(860px,92vw);padding:18px;position:relative;max-height:86vh;overflow:auto">
+    <button id="closeModal" class="btn ghost" style="position:absolute;right:12px;top:12px">Close</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// Smooth anchor
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); history.replaceState(null,'','#'+id); }
+  });
+});
+
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Modal helpers
+const modal=document.getElementById('modal'), content=document.getElementById('modalContent');
+document.getElementById('closeModal').onclick=()=>modal.style.display='none';
+function openModal(html){ content.innerHTML=html; modal.style.display='grid'; }
+
+// Project previews
+const previews={
+  p1:<h3>Portfolio Preview</h3><p class="section-sub">Hero, skills, projects, contact — smooth scrolling & micro‑animations.</p>,
+  p2:<h3>Landing Page Preview</h3><p class="section-sub">Conversion‑focused layout with strong CTAs and benefits.</p>,
+  p3:<h3>Widgets Preview</h3><ul class="section-sub"><li>Accordion</li><li>Modal</li><li>Toast</li></ul>
+};
+document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',()=>openModal(previews[b.dataset.modal]||'No preview')));
+
+// Pricing → mailto quote
+document.querySelectorAll('.plan .read').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const plan=btn.dataset.plan||'Custom';
+    openModal
